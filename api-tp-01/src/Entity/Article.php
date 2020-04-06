@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,36 +19,44 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("article:detail")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("article:detail")
      */
     private $content;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("article:detail")
      */
     private $status;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups("article:detail")
      */
     private $trending;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Groups("article:detail")
      */
     private $published;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups("article:detail")
+
      */
     private $created;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\category", inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="articles")
+     * @Groups("article:detail")
      */
     private $category_id;
 

@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
@@ -15,16 +17,21 @@ class Category
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("category:detail")
+     * @Groups("article:detail")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("category:detail")
+     * @Groups("article:detail")
      */
     private $name;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups("category:detail")
      */
     private $created;
 
